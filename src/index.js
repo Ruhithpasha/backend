@@ -38,3 +38,4 @@ dotenv.config({
     path : './env'
 })
 
+connect_DB();
