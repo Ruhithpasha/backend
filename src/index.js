@@ -33,6 +33,9 @@
 
 import dotenv from 'dotenv';
 import connect_DB from './db/index.js';
+import app from './app.js'
+
+// You used the dotenv module to load environment variables from a .env file into process.env. This allows you to manage configuration settings outside of your code, making it easier to change settings without modifying the source code.
 
 dotenv.config({
     path : './env'
@@ -41,7 +44,7 @@ dotenv.config({
 connect_DB()
 .then((result) => {
     app.listen(process.env.PORT ||8000,()=>{
-        console.log("`server is running at port ${process.env.PORT")
+        console.log(`server is running at port ${process.env.PORT}`)
     })
     
 }).catch((err) => {
