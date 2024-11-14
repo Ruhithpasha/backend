@@ -21,5 +21,5 @@ app.use(cors({
  app.use(express.static("public"))
  //public is the name of the folder where all the static files are stored like images, videos, etc.
  app.use(cookieParser())
- // above line is used to add cookies and modify it from my server to users browser and perform crud operations on it.
+ // above line is used to add cookies and modify it from my server to users browser and perform crud  operations on it.
 export default app;

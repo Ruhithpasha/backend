@@ -1,3 +1,5 @@
+//Use Copilot for better Understanding
+
 class ApiError extends Error{
     constructor(statusCode,
         message="Somethi g went wrong",
