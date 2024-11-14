@@ -8,7 +8,7 @@
 // // This allows you to handle errors in asynchronous route handlers without having to use try-catch blocks in each route.
 
 
-
+//this is a helper function that will be used to handle async functions in the routes
 const asyncHandler = (requestHandler)=>{
     return (req,res,next)=>{
         Promise.resolve(requestHandler(req,res,next)).catch((err)=> next
