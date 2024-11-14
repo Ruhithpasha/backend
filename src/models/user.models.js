@@ -61,26 +61,27 @@ userSchema.pre("save",async function(next){
     this.password = await bcrypt.hash(this.password,10);
     next()
 })
-// this method compares as=nd return true or false if the password is correct
+// this method  compares as=nd return true or false if the password is correct
 userSchema.methods.isPasswordCorrect =async function(password){
     return await bcrypt.compare(password,this.password)
 }
 
-
+// this method generates an access token
 userSchema.methods.generateAccessToken = function(){
     return jwt .sign(
-        {
+        { //payload
             _id:this._id,
             email:this.email,
             username:this.username,
             fullname:this.fullname
-        },
+        },//secret key
         process.env.ACCESS_TOKEN_SECRET,
-        {
+        {//options
             expiresIn:process.env.ACCESS_TOKEN_EXPIRY
         }
     )
 }
+// this method generates a refresh token
  userSchema.methods.generaterefreshToken  =function (){
     return jwt .sign(
         {
